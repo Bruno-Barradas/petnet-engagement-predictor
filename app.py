@@ -150,7 +150,7 @@ with st.sidebar:
     ])
     st.markdown("---")
     st.markdown("**Projeto:** PetNet Engagement Predictor")
-    st.markdown("**Autor:** Bruno Barradas 2025")
+    st.markdown("**Autor:** Bruno Barradas")
     st.markdown("[GitHub](https://github.com/Bruno-Barradas/petnet-engagement-predictor)")
 
 

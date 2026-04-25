@@ -1,149 +1,162 @@
 # 🐾 PetNet Engagement Predictor
 
-> Machine Learning model that predicts post engagement on a social pet platform — EDA, feature analysis, and Linear Regression with **R²=0.97**.
+> Product analytics and machine learning project that predicts post engagement for a social pet platform using simulated engagement data.
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-ML_Model-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org)
+---
+
+## 🌐 Live Demo
+
+👉 Coming soon
 
 ---
 
 ## 📌 Overview
 
-PetNet is a social platform for pet owners where users share photos, videos, and updates about their animals. Understanding what drives engagement is critical for content creators and platform growth teams.
+PetNet is a social platform for pet owners where users share photos, videos, and updates about their animals.
 
-This project builds a **predictive model for post engagement** using behavioral and content features, identifying which factors most influence how users interact with posts.
+This project simulates post engagement behavior and builds a predictive analytics workflow to understand which signals drive engagement.
 
----
+The goal is to demonstrate how a product analytics pipeline can be structured for a real social media product:
 
-## 📊 Key Results
-
-| Metric | Value |
-|--------|-------|
-| 🎯 Model R² | **0.97** — strong predictive capability |
-| 📉 MAE | **~18 engagement points** |
-| 🔍 Top Driver | Audience size (strongest correlation) |
-| 💬 2nd Driver | Comment count (high interaction signal) |
-| 🎥 3rd Driver | Video duration (moderate impact) |
-| 🕐 Weakest Signal | Posting time (weak influence) |
+- data generation  
+- exploratory analysis  
+- feature analysis  
+- predictive modeling  
+- Streamlit dashboard  
 
 ---
 
-## 🔍 Key Findings
+## 📊 Dataset
 
-### 1. Audience Size is the Primary Engagement Driver
-Follower count has the strongest correlation with engagement. Larger audiences amplify reach — content quality matters less than distribution scale at this stage.
+This project uses a simulated engagement dataset inspired by a real social media product context.
 
-### 2. Comments Signal Deep Engagement
-Posts with higher comment counts show significantly higher total engagement. Comments indicate active interaction, not passive consumption — a strong quality signal.
+The dataset includes common engagement signals such as:
 
-### 3. Video Duration Has Moderate Impact
-Longer videos correlate moderately with engagement, suggesting that content depth matters to the PetNet audience — users watch and interact more with substantive content.
+- likes  
+- comments  
+- shares  
+- views  
+- followers  
+- post type  
 
-### 4. Posting Time Shows Weak Influence
-Time of posting has minimal predictive power in this dataset, suggesting the algorithm or notification system distributes content regardless of posting time.
+The engagement score was created using a weighted formula:
 
-### 5. Stable Engagement Distribution
-No extreme outliers detected — engagement distribution is consistent across the dataset, making it well-suited for linear modeling.
+```text
+engagement_score = likes × 0.5 + comments × 0.3 + shares × 0.2
 
----
+This makes the project useful for demonstrating a full product analytics workflow: data generation, EDA, predictive modeling, and dashboard creation.
 
-## 🧠 Methodology
+📈 Key Results
+Metric	Value
+Dataset size	1,000 posts
+Best performing post type	Image
+Average image engagement	146.31
+Average video engagement	144.08
+Model R²	1.00
+MAE	0.00
+Top driver	Likes
+Main limitation	Simulated formula-based target
+🔍 Key Findings
+1. Image posts slightly outperform video posts
 
-```
-Raw Data → EDA → Feature Analysis → Correlation Study → Model Training → Evaluation
-```
+Image posts achieved a slightly higher average engagement score than video posts.
 
-| Step | Technique | Output |
-|------|-----------|--------|
-| Exploratory Analysis | Pandas, Matplotlib | Distribution plots, summary stats |
-| Correlation Analysis | Pearson correlation | Feature importance ranking |
-| Feature Engineering | Scikit-learn | Scaled features |
-| Model Training | Linear Regression | Trained model (.pkl) |
-| Evaluation | MAE, R² | Performance metrics |
+This suggests that, in this simulated dataset, static content performs marginally better than video content.
 
----
+2. Likes are the dominant engagement driver
 
-## 🤖 Model Details
+Likes have the strongest correlation with engagement score.
 
-**Algorithm:** Linear Regression (scikit-learn)  
-**Target:** Post engagement score (continuous)  
-**Split:** 80% train / 20% test  
+This is expected because likes have the highest weight in the engagement formula.
 
-| Feature | Impact Direction | Strength |
-|---------|-----------------|----------|
-| `audience_size` | Positive | Strong |
-| `comment_count` | Positive | Strong |
-| `video_duration` | Positive | Moderate |
-| `posting_time` | Variable | Weak |
+3. Comments and shares contribute less than likes
 
----
+Comments and shares influence engagement, but their impact is smaller than likes.
 
-## ⚡ Quick Start
+This reflects the weighted structure of the simulated score.
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/Bruno-Barradas/petnet-engagement-predictor
-cd petnet-engagement-predictor
+4. Followers and views have weak relationship with engagement
 
-# 2. Install dependencies
+Followers and views show little direct relationship with engagement score in this dataset.
+
+This suggests that, under this simulation, engagement is driven more by interaction signals than audience size.
+
+🤖 Model Details
+
+Algorithm: Linear Regression
+Target: engagement_score
+Features used:
+
+likes
+comments
+shares
+views
+followers
+Model Performance
+Metric	Value
+R²	1.00
+MAE	0.00
+
+The model performs perfectly because the target variable was generated using a deterministic formula.
+
+This is intentional and is clearly documented as part of the project design.
+
+⚠️ Limitations
+
+This dataset is simulated, so the model performance is intentionally very high.
+
+The goal of this project is not to claim real-world prediction accuracy, but to demonstrate how a product analytics pipeline can be structured for a social media app.
+
+In a real production environment, engagement would depend on additional variables such as:
+
+content quality
+recommendation algorithm behavior
+hashtags
+time decay
+media quality
+user network effects
+personalization
+🖥️ Streamlit App
+
+The Streamlit app includes:
+
+dataset overview
+engagement by post type
+correlation analysis
+visual exploration
+engagement prediction simulator
+key insights
+limitations
+📸 Visuals
+
+
+
+
+
+
+🛠️ Tech Stack
+Python
+Pandas
+NumPy
+Matplotlib
+Scikit-learn
+Streamlit
+🚀 Run Locally
 pip install -r requirements.txt
+streamlit run app.py
+💼 Business Value
 
-# 3. Open the notebook
-jupyter notebook analysis.ipynb
-```
+This project demonstrates how engagement prediction can support:
 
----
+content strategy
+creator tools
+product analytics
+growth experimentation
+social app decision-making
 
-## 📁 Project Structure
+It connects machine learning with product thinking by showing how a platform could estimate expected engagement before publishing content.
 
-```
-petnet-engagement-predictor/
-│
-├── analysis.ipynb          # Full analysis: EDA + modeling + evaluation
-├── dataset.csv             # Platform engagement dataset
-├── engagement_model.pkl    # Trained Linear Regression model
-├── requirements.txt        # Python dependencies
-└── README.md               # This file
-```
+📬 Contact
 
----
-
-## 🛠️ Tech Stack
-
-- **Python 3.10+** — core language
-- **Pandas & NumPy** — data manipulation
-- **Matplotlib** — visualizations
-- **Scikit-learn** — machine learning model
-
----
-
-## 📈 Improvement Roadmap
-
-| Upgrade | Expected Impact | Effort |
-|---------|----------------|--------|
-| Random Forest / XGBoost | Higher robustness | Low |
-| Feature: hashtag count | Better content signals | Low |
-| Feature: image vs video | Media type impact | Low |
-| Cross-validation (k-fold) | More reliable R² estimate | Low |
-| Time-series analysis | Trend detection | Medium |
-
----
-
-## 💼 Business Applications
-
-- **Content Strategy:** Guide creators on which factors to optimize for reach
-- **Algorithm Design:** Weight features that correlate with healthy engagement
-- **Creator Tools:** Build a score predictor before posting
-- **Growth Analytics:** Track engagement drivers over time as platform scales
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute with attribution.
-
----
-
-**Built with** Python · Scikit-learn · Pandas · Matplotlib  
-*PetNet Engagement Predictor — Social Platform Analytics*
+Bruno Barradas
+https://github.com/Bruno-Barradas

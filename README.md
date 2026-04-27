@@ -6,7 +6,18 @@
 
 ## 🌐 Live Demo
 
-https://petnet-engagement-predictor-4djh8ohwrqjjntt4vregra.streamlit.app/
+👉 https://petnet-engagement-predictor-4djh8ohwrqjjntt4vregra.streamlit.app/
+
+---
+
+## 📸 Visuals
+
+![Cover](visuals/cover.png)
+
+![Dashboard](visuals/dashboard.png)  
+![Engagement by Post Type](visuals/chart_01.png)  
+![Likes vs Engagement](visuals/chart_02.png)  
+![Followers vs Engagement](visuals/chart_03.png)
 
 ---
 
@@ -61,30 +72,23 @@ Main limitation	Simulated formula-based target
 
 Image posts achieved a slightly higher average engagement score than video posts.
 
-This suggests that, in this simulated dataset, static content performs marginally better than video content.
-
 2. Likes are the dominant engagement driver
 
 Likes have the strongest correlation with engagement score.
 
-This is expected because likes have the highest weight in the engagement formula.
-
 3. Comments and shares contribute less than likes
 
-Comments and shares influence engagement, but their impact is smaller than likes.
-
-This reflects the weighted structure of the simulated score.
+They influence engagement, but with lower impact.
 
 4. Followers and views have weak relationship with engagement
 
-Followers and views show little direct relationship with engagement score in this dataset.
-
-This suggests that, under this simulation, engagement is driven more by interaction signals than audience size.
+Engagement is driven more by interaction than audience size in this simulation.
 
 🤖 Model Details
 
 Algorithm: Linear Regression
 Target: engagement_score
+
 Features used:
 
 likes
@@ -99,18 +103,16 @@ MAE	0.00
 
 The model performs perfectly because the target variable was generated using a deterministic formula.
 
-This is intentional and is clearly documented as part of the project design.
-
 ⚠️ Limitations
 
 This dataset is simulated, so the model performance is intentionally very high.
 
 The goal of this project is not to claim real-world prediction accuracy, but to demonstrate how a product analytics pipeline can be structured for a social media app.
 
-In a real production environment, engagement would depend on additional variables such as:
+In a real production environment, engagement would depend on:
 
 content quality
-recommendation algorithm behavior
+recommendation algorithms
 hashtags
 time decay
 media quality
@@ -118,22 +120,15 @@ user network effects
 personalization
 🖥️ Streamlit App
 
-The Streamlit app includes:
+The app includes:
 
 dataset overview
-engagement by post type
-correlation analysis
-visual exploration
+engagement analysis
+correlation insights
+interactive charts
 engagement prediction simulator
-key insights
-limitations
-📸 Visuals
-
-
-
-
-
-
+recommendations
+technical appendix
 🛠️ Tech Stack
 Python
 Pandas

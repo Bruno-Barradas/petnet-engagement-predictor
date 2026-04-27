@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-👉 Coming soon
+https://petnet-engagement-predictor-4djh8ohwrqjjntt4vregra.streamlit.app/
 
 ---
 
